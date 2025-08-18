@@ -219,24 +219,33 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
   /**
-   * Contact form submission
+   * Contact Form Submission
    */
-  const contactForm = document.querySelector('#contact-form');
+  const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
+    contactForm.addEventListener('submit', async function(e) {
       e.preventDefault();
-      const formData = new FormData(contactForm);
-      const data = Object.fromEntries(formData.entries());
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      if (res.ok) {
-        contactForm.reset();
-        alert('Message sent successfully!');
-      } else {
-        alert('Error sending message.');
+      const data = {
+        name: contactForm.name.value,
+        email: contactForm.email.value,
+        subject: contactForm.subject.value,
+        message: contactForm.message.value
+      };
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        if (result.success) {
+          alert('Your message has been sent. Thank you!');
+          contactForm.reset();
+        } else {
+          alert('Error sending message.');
+        }
+      } catch {
+        alert('Error connecting to server.');
       }
     });
   }
