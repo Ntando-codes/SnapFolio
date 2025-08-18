@@ -222,9 +222,15 @@
    * Contact Form Submission
    */
   const contactForm = document.getElementById('contactForm');
+  const loadingMsg = document.querySelector('.loading');
+  const sentMsg = document.querySelector('.sent-message');
+
   if (contactForm) {
     contactForm.addEventListener('submit', async function(e) {
       e.preventDefault();
+      if (loadingMsg) loadingMsg.style.display = 'block';
+      if (sentMsg) sentMsg.style.display = 'none';
+
       const data = {
         name: contactForm.name.value,
         email: contactForm.email.value,
@@ -238,13 +244,15 @@
           body: JSON.stringify(data)
         });
         const result = await res.json();
+        if (loadingMsg) loadingMsg.style.display = 'none';
         if (result.success) {
-          alert('Your message has been sent. Thank you!');
+          if (sentMsg) sentMsg.style.display = 'block';
           contactForm.reset();
         } else {
-          alert('Error sending message.');
+          alert('Error sending message: ' + (result.error || 'Unknown error'));
         }
       } catch {
+        if (loadingMsg) loadingMsg.style.display = 'none';
         alert('Error connecting to server.');
       }
     });
