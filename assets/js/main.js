@@ -1,5 +1,3 @@
-
-
 (function() {
   "use strict";
 
@@ -219,5 +217,28 @@
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
+
+  /**
+   * Contact form submission
+   */
+  const contactForm = document.querySelector('#contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(contactForm);
+      const data = Object.fromEntries(formData.entries());
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        contactForm.reset();
+        alert('Message sent successfully!');
+      } else {
+        alert('Error sending message.');
+      }
+    });
+  }
 
 })();
