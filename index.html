@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Ntando Nxumalo</title>
+  <meta name="description" content="Ntando Nxumalo - Software Developer Portfolio. Explore my projects, skills, resume, and contact information.">
+  <meta name="keywords" content="Ntando Nxumalo, Software Developer, Web Development, Java, Python, C#, Cybersecurity, Portfolio, Johannesburg">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    body, .main, .section, .card, .list-group-item, .profile-card, .profile-content, .about-content, .resume-section, .stats-wrapper, .info-box, .contact-form {
+      background: #181a1b !important;
+      color: #eaeaea !important;
+    }
+    .card, .profile-card, .resume-side {
+      background: #23272b !important;
+      border: none;
+    }
+    .text-gradient, .card-title, .section-title h2 {
+      background: linear-gradient(90deg, #00c6ff 0%, #0077B5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .badge.bg-primary {
+      background-color: #0077B5 !important;
+      color: #fff !important;
+    }
+    .badge.bg-secondary {
+      background-color: #23272b !important;
+      color: #fff !important;
+    }
+    .btn-outline-dark, .btn-primary, .btn-outline-primary {
+      border-radius: 20px;
+    }
+    .btn-primary {
+      background-color: #0077B5;
+      border: none;
+    }
+    .btn-outline-dark {
+      border-color: #444;
+      color: #eaeaea;
+      background: #23272b;
+    }
+    .btn-outline-dark:hover {
+      background: #0077B5;
+      color: #fff;
+      border-color: #0077B5;
+    }
+    .list-group-item {
+      background: transparent;
+      border: none;
+      color: #eaeaea;
+    }
+    .info-box, .contact-form {
+      background: #23272b !important;
+      border-radius: 12px;
+      padding: 2rem;
+      color: #eaeaea;
+    }
+    .form-control {
+      background: #181a1b;
+      color: #eaeaea;
+      border: 1px solid #444;
+    }
+    .form-control:focus {
+      background: #23272b;
+      color: #fff;
+      border-color: #0077B5;
+      box-shadow: none;
+    }
+    .section-title h2 {
+      font-weight: 700;
+      font-size: 2.2rem;
+    }
+    .section-title p {
+      color: #b0b0b0;
+    }
+    .stats-wrapper .stats-item {
+      background: #23272b;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 0.5rem;
+      color: #eaeaea;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .stats-wrapper .icon-wrapper {
+      font-size: 2rem;
+      color: #00c6ff;
+      margin-bottom: 0.5rem;
+    }
+    .stats-wrapper .purecounter {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #0077B5;
+    }
+    .stats-wrapper p {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #eaeaea;
+    }
+    .contact-form .btn {
+      background: #0077B5;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 0.5rem 2rem;
+      font-weight: 600;
+    }
+    .contact-form .btn:hover {
+      background: #00c6ff;
+      color: #181a1b;
+    }
+    .profile-image, .img-fluid.rounded-circle {
+      border: 3px solid #0077B5;
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header dark-background d-flex flex-column justify-content-center">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+    <div class="header-container d-flex flex-column align-items-start">
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
+          <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
+          <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+          <li><a href="#skills"><i class="bi bi-lightning navicon"></i> Skills</a></li>
+          <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+        </ul>
+      </nav>
+      <div class="social-links text-center">
+        <a href="https://github.com/ntando-codes" target="_blank" class="github"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/ntando-nxumalo" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <a href="#" title="Discord: ntando_51855" class="discord"><i class="bi bi-discord"></i></a>
+        <a href="mailto:ntando.codes@gmail.com" class="email"><i class="bi bi-envelope"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero section py-5" style="background: linear-gradient(120deg, #23272b 60%, #0077B5 100%);">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7" data-aos="fade-right" data-aos-delay="100">
+            <div class="hero-text">
+              <h1 class="text-gradient mb-2" style="font-size:3rem;font-weight:800;">Ntando Nxumalo</h1>
+              <h2 class="mb-3" style="font-weight:600;color:#eaeaea;">Software Development Student<br>
+                <span style="color:#00c6ff;">DevOps & Cloud Enthusiast</span> | <span style="color:#00c6ff;">Cybersecurity Advocate</span>
+              </h2>
+              <p class="lead mb-3" style="font-size:1.25rem;">
+                Building scalable, secure applications and mastering DevOps, Cloud, and Cybersecurity. Skilled in Java, Python, JavaScript, C#, and SQL, with hands-on experience in Git, Docker, CI/CD, and ethical hacking.
+              </p>
+              <p class="description mb-4" style="font-size:1.1rem;">
+                Driven by learning, discipline, and collaboration—currently building chatbot task managers, CI/CD pipelines, and full-stack web tools. I believe in delivering solutions that matter and helping others break into tech.<br>
+                <span class="text-primary" style="font-weight:600;">“Code with purpose, build with passion.”</span>
+              </p>
+              <div class="hero-actions mt-3 d-flex gap-3">
+                <a href="#resume" class="btn btn-primary btn-lg px-4" style="box-shadow:0 2px 12px #0077B5;">View Resume</a>
+                <a href="#contact" class="btn btn-outline-dark btn-lg px-4">Get In Touch</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 text-center" data-aos="fade-left" data-aos-delay="200">
+            <img src="assets/img/profile/Ntando.jpg" alt="Ntando Nxumalo profile photo" class="img-fluid rounded-circle profile-image" style="width:240px;height:240px;object-fit:cover;box-shadow:0 4px 24px #0077B5;">
+          </div>
+        </div>
+      </div>
+    </section><!-- /Hero Section -->
+
+    <!-- PODCAST FEATURE -->
+    <section class="section py-5" style="background:#23272b;">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="card shadow-lg border-0" style="background:linear-gradient(120deg,#23272b 70%,#0077B5 100%);">
+              <div class="card-body p-4">
+                <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+                  <div>
+                    <h2 class="text-gradient mb-2" style="font-size:2rem;">🎙️ Featured Podcast: “Let’s Talk Tech with Gen Z”</h2>
+                    <p class="mb-2" style="font-size:1.1rem;">I was featured on the Melsoft Academy podcast, sharing my journey as a Software Development student and aspiring DevOps & Cybersecurity professional. In this episode, I discuss:</p>
+                    <ul style="font-size:1rem;">
+                      <li>How I started coding with Python and built foundational skills in Java, JavaScript, C#, and SQL.</li>
+                      <li>Real-world projects, including the Tshabalala Towing Services website, which delivered measurable impact.</li>
+                      <li>Insights from ethical hacking and practical cybersecurity lessons for staying safe online.</li>
+                      <li>My approach to learning, discipline, and adapting to emerging tech, including thoughts on AI in software development.</li>
+                      <li>Advice for young developers on breaking into tech and building a meaningful career.</li>
+                    </ul>
+                  </div>
+                  <div class="text-center mt-3 mt-md-0 ms-md-4">
+                    <a href="https://www.youtube.com/watch?v=1Ol6wx5LTy0&t=2s" target="_blank" class="btn btn-warning btn-lg px-4" style="font-weight:700;font-size:1.1rem;box-shadow:0 2px 12px #FFD700;">
+                      <i class="bi bi-play-circle me-2"></i>Watch Me
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --- About Section --- -->
+    <section id="about" class="about section py-5" style="background:#181a1b;">
+      <div class="container" data-aos="fade-up">
+        <div class="row align-items-center">
+          <div class="col-md-4 mb-4">
+            <div class="card shadow border-0" style="background:#23272b;">
+              <div class="card-body text-center">
+                <img src="assets/img/profile/Ntando.jpg" alt="Ntando Nxumalo profile" class="img-fluid rounded-circle mb-3" style="width:120px;height:120px;object-fit:cover;">
+                <h3 class="fw-bold mb-1 text-gradient" style="font-size:1.5rem;">Ntando Nxumalo</h3>
+                <p class="text-muted mb-2">Software Development Student<br>DevOps & Cloud Engineer | Cybersecurity Enthusiast</p>
+                <span class="badge bg-primary mb-2">Johannesburg, Gauteng, South Africa</span>
+                <div class="d-flex justify-content-center gap-2 mt-2">
+                  <a href="mailto:ntando.codes@gmail.com" class="btn btn-outline-dark btn-sm rounded-pill" title="Email"><i class="bi bi-envelope"></i></a>
+                  <a href="tel:0799193014" class="btn btn-outline-dark btn-sm rounded-pill" title="Phone"><i class="bi bi-telephone"></i></a>
+                  <a href="https://www.linkedin.com/in/ntando-nxumalo" class="btn btn-outline-dark btn-sm rounded-pill" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                  <span class="btn btn-outline-dark btn-sm rounded-pill" title="Discord"><i class="bi bi-discord"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="ps-md-4">
+              <p class="lead mb-2" style="font-size:1.15rem;">
+                I’m a Software Development student at IIE Rosebank College, focused on DevOps, Cloud, and Cybersecurity. I build scalable, efficient applications and ensure they deploy smoothly, scale effectively, and stay secure.
+              </p>
+              <p style="font-size:1.05rem;">
+                I work with Java, Python, JavaScript, C#, SQL, and modern tools like Git, Docker, GitHub Actions, and CI/CD pipelines. My projects include web applications, desktop apps, and intelligent bots, combining coding with infrastructure and automation.
+              </p>
+              <p style="font-size:1.05rem;">
+                Internship experience as a Python Developer at HexSoftwares and Java Developer at Codveda Technologies has strengthened my skills in real-world environments.
+              </p>
+              <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item"><strong>Top Skills:</strong> DevOps & CI/CD, Cybersecurity Fundamentals, Full-Stack Web Development, Cloud Computing</li>
+                <li class="list-group-item"><strong>Languages:</strong> Java, Python, JavaScript, C#, SQL</li>
+                <li class="list-group-item"><strong>Tools:</strong> Git, Docker, GitHub Actions, Linux (beginner), Agile Collaboration</li>
+                <li class="list-group-item"><strong>Other:</strong> OOP, Web Development, Ethical Hacking, Infrastructure Automation</li>
+              </ul>
+              <span class="badge bg-secondary">Driven by learning, building with purpose, and delivering solutions that matter.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /About Section -->
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats section light-background">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="stats-wrapper d-flex flex-wrap justify-content-center">
+              <div class="stats-item text-center" data-aos="zoom-in" data-aos-delay="150">
+                <div class="icon-wrapper">
+                  <i class="bi bi-emoji-smile"></i>
+                </div>
+                <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Clients Helped</p>
+              </div>
+              <div class="stats-item text-center" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-wrapper">
+                  <i class="bi bi-journal-richtext"></i>
+                </div>
+                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Projects Completed</p>
+              </div>
+              <div class="stats-item text-center" data-aos="zoom-in" data-aos-delay="250">
+                <div class="icon-wrapper">
+                  <i class="bi bi-headset"></i>
+                </div>
+                <span data-purecounter-start="0" data-purecounter-end="1200" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Support Hours</p>
+              </div>
+              <div class="stats-item text-center" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-wrapper">
+                  <i class="bi bi-people"></i>
+                </div>
+                <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Team Collaborators</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Stats Section -->
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="skills section py-5" style="background:#23272b;">
+      <div class="container section-title" data-aos="fade-up">
+        <h2 class="text-gradient">Skills</h2>
+        <p>Here are my core technical skills and certifications.</p>
+      </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="skills-category mb-4" data-aos="fade-up" data-aos-delay="200">
+              <h3 class="text-gradient">Programming & Scripting</h3>
+              <div class="skills-animation">
+                <div class="skill-item mb-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>Python</h4>
+                    <span class="skill-percentage">Advanced</span>
+                  </div>
+                  <div class="progress" style="height:8px;">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width:90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="skill-tooltip">Scripting, automation, Django</div>
+                </div>
+                <div class="skill-item mb-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>Java</h4>
+                    <span class="skill-percentage">Advanced</span>
+                  </div>
+                  <div class="progress" style="height:8px;">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width:85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="skill-tooltip">Spring, OOP, JUnit testing</div>
+                </div>
+                <div class="skill-item mb-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>JavaScript</h4>
+                    <span class="skill-percentage">Advanced</span>
+                  </div>
+                  <div class="progress" style="height:8px;">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width:85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="skill-tooltip">ES6+, DOM, frameworks, UI/UX</div>
+                </div>
+                <div class="skill-item mb-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>C#</h4>
+                    <span class="skill-percentage">Intermediate</span>
+                  </div>
+                  <div class="progress" style="height:8px;">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width:70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="skill-tooltip">.NET, desktop apps</div>
+                </div>
+                <div class="skill-item mb-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>SQL</h4>
+                    <span class="skill-percentage">Intermediate</span>
+                  </div>
+                  <div class="progress" style="height:8px;">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width:75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="skill-tooltip">Database design, queries</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="skills-category mb-4" data-aos="fade-up" data-aos-delay="300">
+              <h3 class="text-gradient">DevOps, Cloud & Security</h3>
+              <div class="skills-animation">
+                <div class="skill-item mb-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>DevOps & CI/CD</h4>
+                    <span class="skill-percentage">Advanced</span>
+                  </div>
+                  <div class="progress" style="height:8px;">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width:85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="skill-tooltip">GitHub Actions, pipelines, automation</div>
+                </div>
+                <div class="skill-item mb-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>Cloud Computing</h4>
+                    <span class="skill-percentage">Intermediate</span>
+                  </div>
+                  <div class="progress" style="height:8px;">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width:70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="skill-tooltip">IBM Cloud, deployment, scaling</div>
+                </div>
+                <div class="skill-item mb-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>Cybersecurity</h4>
+                    <span class="skill-percentage">Intermediate</span>
+                  </div>
+                  <div class="progress" style="height:8px;">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width:65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="skill-tooltip">Ethical hacking, security basics</div>
+                </div>
+                <div class="skill-item mb-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>Linux</h4>
+                    <span class="skill-percentage">Beginner</span>
+                  </div>
+                  <div class="progress" style="height:8px;">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width:40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="skill-tooltip">Shell, basic admin</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-12">
+            <div class="skills-category" data-aos="fade-up" data-aos-delay="400">
+              <h3 class="text-gradient">Certifications</h3>
+              <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item">Introduction to DevOps – Alison</li>
+                <li class="list-group-item">Cloud Computing Fundamentals – IBM</li>
+                <li class="list-group-item">Introduction to Cybersecurity – Cisco Networking Academy</li>
+                <li class="list-group-item">Computer Hardware Basics – Cisco Networking Academy</li>
+                <li class="list-group-item">Diploma in Software Development (Ongoing) – IIE Rosebank College</li>
+                <li class="list-group-item">Matric Qualification – Hoërskool Westonaria</li>
+                <li class="list-group-item">Fullstack Software Development – FNB Academy</li>
+                <li class="list-group-item">Introduction to Personal Computing – IIE Rosebank College</li>
+                <li class="list-group-item">Cyber Security Certificate – ISC2</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Skills Section -->
+
+    <!-- EXPERIENCE & PROJECTS -->
+    <section id="resume" class="resume section py-5" style="background:#181a1b;">
+      <div class="container section-title" data-aos="fade-up">
+        <h2 class="text-gradient">Experience & Projects</h2>
+        <p>Professional experience, internships, and key projects.</p>
+      </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-4">
+            <div class="resume-side" data-aos="fade-right" data-aos-delay="100">
+              <div class="profile-img mb-4 text-center">
+                <img src="assets/img/profile/Ntando.jpg" alt="Profile" class="img-fluid rounded-circle" style="width:120px;height:120px;object-fit:cover;">
+              </div>
+              <h3 class="text-gradient">Professional Summary</h3>
+              <p>
+                Software Development student at IIE Rosebank College, specializing in DevOps, Cloud, and Cybersecurity. Skilled in Java, Python, JavaScript, C#, SQL, Git, Docker, and CI/CD. Internship experience in Python and Java development. Passionate about building scalable solutions and delivering real-world impact.
+              </p>
+              <h3 class="mt-4 text-gradient">Contact Information</h3>
+              <ul class="contact-info list-unstyled">
+                <li><i class="bi bi-geo-alt"></i> Johannesburg, South Africa</li>
+                <li><i class="bi bi-envelope"></i>
+                  <a href="mailto:ntando.codes@gmail.com" target="_blank">ntando.codes@gmail.com</a>
+                </li>
+                <li><i class="bi bi-phone"></i>
+                  <a href="tel:0799193014">0799193014</a>
+                </li>
+                <li><i class="bi bi-linkedin"></i>
+                  <a href="https://www.linkedin.com/in/ntando-nxumalo" target="_blank">ntando-nxumalo</a>
+                </li>
+                <li><i class="bi bi-discord"></i> ntando_51855</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-8 ps-4 ps-lg-5">
+            <div class="resume-section" data-aos="fade-up">
+              <h3><i class="bi bi-briefcase me-2"></i>Internship Experience</h3>
+              <div class="resume-item">
+                <h4>Python Developer – HexSoftwares</h4>
+                <h5>Jul 2025 - Aug 2025</h5>
+                <ul>
+                  <li>Developed automation scripts and web tools using Python.</li>
+                  <li>Collaborated on CI/CD pipelines and cloud deployments.</li>
+                </ul>
+              </div>
+              <div class="resume-item">
+                <h4>Java Developer – Codveda Technologies</h4>
+                <h5>Jul 2025 - Aug 2025</h5>
+                <ul>
+                  <li>Built Java applications and contributed to backend systems.</li>
+                  <li>Worked on JUnit testing and agile team projects.</li>
+                </ul>
+              </div>
+              <h3 class="mt-4"><i class="bi bi-folder me-2"></i>Key Projects</h3>
+              <div class="resume-item">
+                <h4><a href="https://tshabalalatowingservices.netlify.app/" target="_blank">Tshabalala Towing Services Website</a></h4>
+                <h5>2025</h5>
+                <ul>
+                  <li>Business website with WhatsApp contact, splash page, and SEO.</li>
+                  <li>Secure web development and user experience focus.</li>
+                </ul>
+              </div>
+              <div class="resume-item">
+                <h4><a href="https://github.com/Ntando-codes/WoolpertPracticeSite" target="_blank">Woolpert Practice Site</a></h4>
+                <h5>2025</h5>
+                <ul>
+                  <li>Tribute portfolio styled around geospatial editing and creativity.</li>
+                </ul>
+              </div>
+              <div class="resume-item">
+                <h4><a href="https://github.com/Ntando-codes/Forexbot" target="_blank">ForexBot</a></h4>
+                <h5>2025</h5>
+                <ul>
+                  <li>Smart bot for assisting with forex trends and decision making.</li>
+                </ul>
+              </div>
+              <div class="resume-item">
+                <h4><a href="https://github.com/Ntando-codes/tech-repairs" target="_blank">Tech Repairs</a></h4>
+                <h5>2024</h5>
+                <ul>
+                  <li>Website prototype for a tech repair service startup.</li>
+                </ul>
+              </div>
+              <div class="resume-item">
+                <h4><a href="https://github.com/Ntando-codes/Report" target="_blank">Java Report System</a></h4>
+                <h5>2024</h5>
+                <ul>
+                  <li>Student report manager built with Java and JUnit testing.</li>
+                </ul>
+              </div>
+              <div class="resume-item">
+                <h4><a href="https://github.com/Ntando-codes/DevOps-Lab" target="_blank">Rancher Snapshots & Kubernetes Backup Lab</a></h4>
+                <h5>2025</h5>
+                <ul>
+                  <li>Hands-on lab for Kubernetes backup and recovery using Rancher.</li>
+                  <li>Experience in etcd snapshot creation, cluster backup, and disaster recovery.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="resume-section" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="text-gradient"><i class="bi bi-mortarboard me-2"></i>Education & Certifications</h3>
+              <div class="resume-item">
+                <h4>Diploma in Software Development (Ongoing)</h4>
+                <h5>IIE Rosebank College</h5>
+              </div>
+              <div class="resume-item">
+                <h4>Matric Qualification</h4>
+                <h5>Hoërskool Westonaria</h5>
+              </div>
+              <div class="resume-item">
+                <h4>Introduction to DevOps</h4>
+                <h5>Alison</h5>
+              </div>
+              <div class="resume-item">
+                <h4>Cloud Computing Fundamentals</h4>
+                <h5>IBM</h5>
+              </div>
+              <div class="resume-item">
+                <h4>Introduction to Cybersecurity</h4>
+                <h5>Cisco Networking Academy</h5>
+              </div>
+              <div class="resume-item">
+                <h4>Computer Hardware Basics</h4>
+                <h5>Cisco Networking Academy</h5>
+              </div>
+              <div class="resume-item">
+                <h4>Fullstack Sofware Development</h4>
+                <h5>FNB Academy</h5>
+              </div>
+              <div class="resume-item">
+                <h4>Introduction to Personal Computing</h4>
+                <h5>IIE Rosebank College</h5>
+              </div>
+              <div class="resume-item">
+                <h4>Cyber Security Certificate</h4>
+                <h5>ISC2</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Resume Section -->
+
+    <!-- --- Contact Section --- -->
+    <section id="contact" class="contact section py-5" style="background:#23272b;">
+      <div class="container section-title" data-aos="fade-up">
+        <h2 class="text-gradient">Contact</h2>
+        <p>Let's connect! Reach out for collaborations, questions, or just to say hello.</p>
+      </div>
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-5">
+            <div class="info-box shadow" style="background:#181a1b;">
+              <h3 class="text-gradient">Contact Info</h3>
+              <ul class="list-unstyled mb-3" style="font-size:1.1rem;">
+                <li><i class="bi bi-telephone"></i> <strong>Mobile:</strong> <a href="tel:0799193014" style="color:#00c6ff;">0799193014</a></li>
+                <li><i class="bi bi-envelope"></i> <strong>Email:</strong> <a href="mailto:ntando.codes@gmail.com" style="color:#00c6ff;">ntando.codes@gmail.com</a></li>
+                <li><i class="bi bi-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ntando-nxumalo" target="_blank" style="color:#00c6ff;">ntando-nxumalo</a></li>
+                <li><i class="bi bi-discord"></i> <strong>Discord:</strong> <span style="color:#00c6ff;">ntando_51855</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="contact-form shadow" style="background:#181a1b;">
+              <h3 class="text-gradient">Get In Touch</h3>
+              <form action="forms/contact.php" method="POST" class="php-email-form" autocomplete="on">
+                <div class="row gy-4">
+                  <div class="col-md-6">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required autocomplete="name" aria-label="Your Name">
+                  </div>
+                  <div class="col-md-6 ">
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" required autocomplete="email" aria-label="Your Email">
+                  </div>
+                  <div class="col-12">
+                    <input type="text" class="form-control" name="subject" placeholder="Subject" required autocomplete="off" aria-label="Subject">
+                  </div>
+                  <div class="col-12">
+                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required autocomplete="off" aria-label="Message"></textarea>
+                  </div>
+                  <div class="col-12 text-center">
+                    <div class="loading" aria-live="polite" style="color:#FFD700;">Loading</div>
+                    <div class="error-message" aria-live="assertive" style="color:#ff4d4f;"></div>
+                    <div class="sent-message" aria-live="polite" style="color:#00c6ff;">Your message has been sent. Thank you!</div>
+                    <button type="submit" class="btn btn-primary btn-lg px-4 mt-2" style="box-shadow:0 2px 12px #0077B5;">Send Message</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- --- End Contact Section --- -->
+
+  </main>
+
+  <footer id="footer" class="footer position-relative">
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Ntando Nxumalo</strong> <span>All Rights Reserved</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- Preloader -->
+  <div id="preloader"></div>
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
