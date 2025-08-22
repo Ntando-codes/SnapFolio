@@ -699,5 +699,845 @@
     }
   });
   </script>
+<!-- Ntando's Chatbot -->
+<div id="chatbot-container">
+  <div id="chatbot-button">
+    <i class="bi bi-robot"></i>
+  </div>
+  <div id="chatbot-window">
+    <div id="chatbot-header">
+      <h5>Ntando's Virtual Assistant</h5>
+      <div id="chatbot-mode-toggle">
+        <span class="mode-btn active" data-mode="fun">Fun Mode</span>
+        <span class="mode-btn" data-mode="serious">Serious Mode</span>
+      </div>
+      <span id="chatbot-close"><i class="bi bi-x"></i></span>
+    </div>
+    <div id="chatbot-messages">
+      <div class="message bot-message">
+        <div class="message-content">
+          Hey there! 👋 I'm Ntando's virtual assistant! What would you like to know about this awesome developer? 😎
+        </div>
+      </div>
+    </div>
+    <div id="chatbot-input">
+      <input type="text" id="chatbot-text-input" placeholder="Ask me anything about Ntando...">
+      <button id="chatbot-send"><i class="bi bi-send"></i></button>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Chatbot Styles - Enhanced to match your theme */
+  #chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  #chatbot-button {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(90deg, #00c6ff 0%, #0077B5 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 119, 181, 0.4);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  #chatbot-button:hover {
+    animation: none;
+    transform: scale(1.1);
+  }
+
+  #chatbot-button i {
+    font-size: 24px;
+    color: white;
+  }
+
+  #chatbot-window {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 380px;
+    height: 500px;
+    background: #23272b;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #444;
+  }
+
+  #chatbot-header {
+    background: #181a1b;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444;
+  }
+
+  #chatbot-header h5 {
+    margin: 0;
+    color: #eaeaea;
+    font-weight: 600;
+    background: linear-gradient(90deg, #00c6ff 0%, #0077B5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  #chatbot-mode-toggle {
+    display: flex;
+    background: #23272b;
+    border-radius: 15px;
+    padding: 3px;
+    margin: 0 10px;
+  }
+
+  .mode-btn {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .mode-btn.active {
+    background: #0077B5;
+    color: white;
+  }
+
+  #chatbot-close {
+    color: #eaeaea;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  #chatbot-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .message {
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  .user-message {
+    justify-content: flex-end;
+  }
+
+  .bot-message {
+    justify-content: flex-start;
+  }
+
+  .message-content {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .user-message .message-content {
+    background: #0077B5;
+    color: white;
+    border-bottom-right-radius: 5px;
+  }
+
+  .bot-message .message-content {
+    background: #444;
+    color: #eaeaea;
+    border-bottom-left-radius: 5px;
+  }
+
+  #chatbot-input {
+    display: flex;
+    padding: 15px;
+    background: #181a1b;
+    border-top: 1px solid #444;
+  }
+
+  #chatbot-text-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #23272b;
+    color: #eaeaea;
+    outline: none;
+  }
+
+  #chatbot-send {
+    background: #0077B5;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  #chatbot-send:hover {
+    background: #00c6ff;
+    transform: scale(1.05);
+  }
+
+  /* Scrollbar styling */
+  #chatbot-messages::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  #chatbot-messages::-webkit-scrollbar-track {
+    background: #181a1b;
+  }
+
+  #chatbot-messages::-webkit-scrollbar-thumb {
+    background: #0077B5;
+    border-radius: 3px;
+  }
+
+  /* Typing indicator */
+  .typing-indicator {
+    display: none;
+    padding: 10px 15px;
+    background: #444;
+    color: #eaeaea;
+    border-radius: 18px;
+    border-bottom-left-radius: 5px;
+    align-self: flex-start;
+    margin-bottom: 15px;
+  }
+
+  .typing-indicator span {
+    height: 8px;
+    width: 8px;
+    float: left;
+    margin: 0 1px;
+    background-color: #9E9EA1;
+    display: block;
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+
+  .typing-indicator span:nth-of-type(1) {
+    animation: typing 1s infinite;
+  }
+
+  .typing-indicator span:nth-of-type(2) {
+    animation: typing 1s 0.33s infinite;
+  }
+
+  .typing-indicator span:nth-of-type(3) {
+    animation: typing 1s 0.66s infinite;
+  }
+
+  @keyframes typing {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  /* Quick reply buttons */
+  .quick-replies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .quick-reply {
+    background: #0077B5;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .quick-reply:hover {
+    background: #00c6ff;
+    transform: scale(1.05);
+  }
+
+  /* Responsive design */
+  @media (max-width: 480px) {
+    #chatbot-window {
+      width: 300px;
+      right: -20px;
+    }
+    
+    #chatbot-header {
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    
+    #chatbot-mode-toggle {
+      align-self: center;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Chatbot elements
+    const chatbotButton = document.getElementById('chatbot-button');
+    const chatbotWindow = document.getElementById('chatbot-window');
+    const chatbotClose = document.getElementById('chatbot-close');
+    const chatbotInput = document.getElementById('chatbot-text-input');
+    const chatbotSend = document.getElementById('chatbot-send');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+    const modeButtons = document.querySelectorAll('.mode-btn');
+    
+    // Create typing indicator
+    const typingIndicator = document.createElement('div');
+    typingIndicator.className = 'typing-indicator';
+    typingIndicator.innerHTML = '<span></span><span></span><span></span>';
+    
+    // Chatbot state
+    let isChatOpen = false;
+    let currentMode = 'fun'; // Default mode
+    let conversationContext = [];
+    
+    // Toggle chat window
+    chatbotButton.addEventListener('click', function() {
+      isChatOpen = !isChatOpen;
+      chatbotWindow.style.display = isChatOpen ? 'flex' : 'none';
+      if (isChatOpen) {
+        chatbotInput.focus();
+      }
+    });
+    
+    // Close chat window
+    chatbotClose.addEventListener('click', function() {
+      isChatOpen = false;
+      chatbotWindow.style.display = 'none';
+    });
+    
+    // Mode toggle
+    modeButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        modeButtons.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        currentMode = this.dataset.mode;
+        
+        const modeChangeMessage = currentMode === 'fun' 
+          ? "🎉 Fun mode activated! Let's have some fun! 🥳" 
+          : "🔍 Serious mode activated. How may I assist you professionally?";
+        
+        addMessage(modeChangeMessage, 'bot');
+      });
+    });
+    
+    // Send message function
+    function sendMessage() {
+      const message = chatbotInput.value.trim();
+      if (message) {
+        // Add user message
+        addMessage(message, 'user');
+        chatbotInput.value = '';
+        
+        // Add to conversation context
+        conversationContext.push({ role: 'user', content: message });
+        // Keep only last 6 messages for context
+        if (conversationContext.length > 6) {
+          conversationContext = conversationContext.slice(-6);
+        }
+        
+        // Show typing indicator
+        chatbotMessages.appendChild(typingIndicator);
+        typingIndicator.style.display = 'block';
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        
+        // Process message and get response
+        setTimeout(() => {
+          typingIndicator.style.display = 'none';
+          const response = generateResponse(message);
+          addMessage(response, 'bot');
+          
+          // Add to conversation context
+          conversationContext.push({ role: 'assistant', content: response });
+        }, 1000 + Math.random() * 1000);
+      }
+    }
+    
+    // Send message on button click
+    chatbotSend.addEventListener('click', sendMessage);
+    
+    // Send message on Enter key
+    chatbotInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+    
+    // Add message to chat
+    function addMessage(text, sender) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${sender}-message`;
+      
+      const messageContent = document.createElement('div');
+      messageContent.className = 'message-content';
+      messageContent.innerHTML = text; // Use innerHTML to allow emojis and formatting
+      
+      messageDiv.appendChild(messageContent);
+      chatbotMessages.appendChild(messageDiv);
+      
+      // Scroll to bottom
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+    
+    // Add quick reply buttons
+    function addQuickReplies(options) {
+      const quickRepliesDiv = document.createElement('div');
+      quickRepliesDiv.className = 'quick-replies';
+      
+      options.forEach(option => {
+        const button = document.createElement('button');
+        button.className = 'quick-reply';
+        button.textContent = option;
+        button.addEventListener('click', function() {
+          chatbotInput.value = option;
+          sendMessage();
+        });
+        quickRepliesDiv.appendChild(button);
+      });
+      
+      chatbotMessages.appendChild(quickRepliesDiv);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+    
+    // Generate bot response with advanced logic
+    function generateResponse(message) {
+      const lowerMessage = message.toLowerCase();
+      
+      // Check conversation context for continuity
+      const lastUserMessage = conversationContext.filter(m => m.role === 'user').slice(-1)[0]?.content || '';
+      
+      // Personality settings based on mode
+      const personality = {
+        fun: {
+          greeting: ["Hey there! 👋", "Hi! 😊", "Hello! 🎉"],
+          positive: ["Awesome! 🚀", "Fantastic! 🌟", "Brilliant! 💡"],
+          negative: ["Hmm, not sure about that one 🤔", "Let me think... 🧠", "Interesting question! 🤓"],
+          closing: ["Anything else I can help with? 😄", "What else would you like to know? 🚀", "Got more questions? I'm all ears! 👂"]
+        },
+        serious: {
+          greeting: ["Hello.", "Greetings.", "Good day."],
+          positive: ["Certainly.", "Affirmative.", "Understood."],
+          negative: ["I need to clarify that.", "Let me reconsider that.", "I should research that further."],
+          closing: ["How else may I assist you?", "Do you have additional inquiries?", "What other information do you require?"]
+        }
+      };
+      
+      // Random selection from array based on mode
+      function getRandomResponse(type) {
+        const responses = personality[currentMode][type];
+        return responses[Math.floor(Math.random() * responses.length)];
+      }
+      
+      // Check if this is a greeting
+      if (lowerMessage.includes('hi') || lowerMessage.includes('hello') || lowerMessage.includes('hey') || 
+          lowerMessage.includes('greeting') || lowerMessage === 'yo') {
+        return `${getRandomResponse('greeting')} I'm Ntando's virtual assistant! What would you like to know about this brilliant developer?`;
+      }
+      
+      // Check if asking about skills
+      if (lowerMessage.includes('skill') || lowerMessage.includes('what can') || lowerMessage.includes('expert') ||
+          lowerMessage.includes('technology') || lowerMessage.includes('stack')) {
+        
+        const skillsResponse = currentMode === 'fun' 
+          ? `Ntando's skills are seriously impressive! 🚀 He's proficient in:
+          <br><br>
+          <strong>Programming:</strong> Java, Python, JavaScript, C#, SQL 🐍☕
+          <br>
+          <strong>DevOps & Cloud:</strong> CI/CD pipelines, GitHub Actions, Docker, IBM Cloud ☁️
+          <br>
+          <strong>Cybersecurity:</strong> Ethical hacking, security fundamentals 🔒
+          <br>
+          <strong>Other:</strong> Web development, OOP, Agile methodologies 💻
+          <br><br>
+          He's basically a tech Swiss Army knife! 🔪💎`
+          : `Ntando possesses expertise in multiple technical domains:
+          <br><br>
+          - Programming Languages: Java, Python, JavaScript, C#, SQL
+          <br>
+          - DevOps & CI/CD: GitHub Actions, Docker, automation pipelines
+          <br>
+          - Cloud Computing: IBM Cloud deployment and management
+          <br>
+          - Cybersecurity: Ethical hacking principles and security fundamentals
+          <br>
+          - Web Development: Full-stack development capabilities
+          <br><br>
+          His skill set combines software development with infrastructure and security.`;
+        
+        setTimeout(() => {
+          addQuickReplies(["What projects has he worked on?", "Tell me about his experience", "How can I contact him?"]);
+        }, 500);
+        
+        return skillsResponse;
+      }
+      
+      // Check if asking about projects
+      if (lowerMessage.includes('project') || lowerMessage.includes('work on') || 
+          lowerMessage.includes('portfolio') || lowerMessage.includes('build')) {
+        
+        const projectsResponse = currentMode === 'fun' 
+          ? `Ntando has built some really cool stuff! 🛠️ Here are highlights:
+          <br><br>
+          🚗 <strong><a href="https://tshabalalatowingservices.netlify.app/" target="_blank" style="color: #00c6ff;">Tshabalala Towing Services</a></strong> - A business website with WhatsApp integration
+          <br>
+          💱 <strong><a href="https://github.com/Ntando-codes/Forexbot" target="_blank" style="color: #00c6ff;">ForexBot</a></strong> - A smart assistant for forex trends
+          <br>
+          🔧 <strong><a href="https://github.com/Ntando-codes/tech-repairs" target="_blank" style="color: #00c6ff;">Tech Repairs</a></strong> - Website for a tech repair startup
+          <br>
+          📊 <strong><a href="https://github.com/Ntando-codes/Report" target="_blank" style="color: #00c6ff;">Java Report System</a></strong> - Student report manager with JUnit testing
+          <br>
+          ☸️ <strong><a href="https://github.com/Ntando-codes/DevOps-Lab" target="_blank" style="color: #00c6ff;">Kubernetes Backup Lab</a></strong> - DevOps hands-on lab with Rancher
+          <br><br>
+          Want to hear more about any specific project? 😄`
+          : `Ntando has developed several practical applications:
+          <br><br>
+          - <strong><a href="https://tshabalalatowingservices.netlify.app/" target="_blank" style="color: #00c6ff;">Tshabalala Towing Services</a></strong>: Business website with secure features and WhatsApp integration
+          <br>
+          - <strong><a href="https://github.com/Ntando-codes/Forexbot" target="_blank" style="color: #00c6ff;">ForexBot</a></strong>: Intelligent assistant for forex market analysis
+          <br>
+          - <strong><a href="https://github.com/Ntando-codes/tech-repairs" target="_blank" style="color: #00c6ff;">Tech Repairs</a></strong>: Prototype website for a technology repair service
+          <br>
+          - <strong><a href="https://github.com/Ntando-codes/Report" target="_blank" style="color: #00c6ff;">Java Report System</a></strong>: Academic report management system with testing
+          <br>
+          - <strong><a href="https://github.com/Ntando-codes/DevOps-Lab" target="_blank" style="color: #00c6ff;">Kubernetes Backup Lab</a></strong>: Practical DevOps implementation with Rancher
+          <br><br>
+          These projects demonstrate full-stack development capabilities.`;
+        
+        return projectsResponse;
+      }
+      
+      // Check if asking about experience
+      if (lowerMessage.includes('experience') || lowerMessage.includes('intern') || 
+          lowerMessage.includes('work history') || lowerMessage.includes('job')) {
+        
+        const experienceResponse = currentMode === 'fun' 
+          ? `Ntando has been gaining some awesome experience! 💼
+          <br><br>
+          👨‍💻 <strong>Python Developer</strong> at HexSoftwares (2025)
+          <br>
+          - Developed automation scripts and web tools
+          <br>
+          - Worked on CI/CD pipelines and cloud deployments
+          <br><br>
+          ☕ <strong>Java Developer</strong> at Codveda Technologies (2025)
+          <br>
+          - Built Java applications and backend systems
+          <br>
+          - JUnit testing and agile team projects
+          <br><br>
+          🚗 <strong>Software Developer</strong> for Tshabalala Towing Services (2025)
+          <br>
+          - Developed and maintained their business website
+          <br>
+          - Implemented secure features and improved UX
+          <br><br>
+          He's currently studying Software Development at IIE Rosebank College! 🎓`
+          : `Ntando has acquired professional experience through:
+          <br><br>
+          <strong>Python Developer</strong> - HexSoftwares (2025)
+          <br>
+          - Developed automation scripts and web tools using Python
+          <br>
+          - Collaborated on CI/CD pipelines and cloud deployments
+          <br><br>
+          <strong>Java Developer</strong> - Codveda Technologies (2025)
+          <br>
+          - Built Java applications and contributed to backend systems
+          <br>
+          - Engaged in JUnit testing and agile team projects
+          <br><br>
+          <strong>Software Developer</strong> - Tshabalala Towing Services (2025)
+          <br>
+          - Developed and maintained the business website
+          <br>
+          - Implemented secure web features and improved user experience
+          <br><br>
+          He is currently pursuing a Diploma in Software Development at IIE Rosebank College.`;
+        
+        return experienceResponse;
+      }
+      
+      // Check if asking about contact info
+      if (lowerMessage.includes('contact') || lowerMessage.includes('email') || 
+          lowerMessage.includes('phone') || lowerMessage.includes('linkedin') ||
+          lowerMessage.includes('get in touch') || lowerMessage.includes('hire')) {
+        
+        const contactResponse = currentMode === 'fun' 
+          ? `Want to connect with Ntando? Awesome! 🚀
+          <br><br>
+          📧 <strong>Email:</strong> ntando.codes@gmail.com
+          <br>
+          📞 <strong>Phone:</strong> 0799193014
+          <br>
+          💼 <strong>LinkedIn:</strong> linkedin.com/in/ntando-nxumalo
+          <br>
+          😊 <strong>Discord:</strong> ntando_51855
+          <br><br>
+          Should I help you send an email or open his LinkedIn profile?`
+          : `You can contact Ntando through these channels:
+          <br><br>
+          <strong>Email:</strong> ntando.codes@gmail.com
+          <br>
+          <strong>Phone:</strong> 0799193014
+          <br>
+          <strong>LinkedIn:</strong> linkedin.com/in/ntando-nxumalo
+          <br>
+          <strong>Discord:</strong> ntando_51855
+          <br><br>
+          Would you like assistance connecting through any of these platforms?`;
+        
+        // Add quick replies for contact options
+        setTimeout(() => {
+          addQuickReplies(["Send email", "Open LinkedIn", "That's all, thanks"]);
+        }, 500);
+        
+        return contactResponse;
+      }
+      
+      // Check if asking about hobbies
+      if (lowerMessage.includes('hobby') || lowerMessage.includes('interest') || 
+          lowerMessage.includes('like to do') || lowerMessage.includes('passion') ||
+          lowerMessage.includes('astronomy') || lowerMessage.includes('psychology') ||
+          lowerMessage.includes('music') || lowerMessage.includes('ai')) {
+        
+        const hobbiesResponse = currentMode === 'fun' 
+          ? `Ntando has some fascinating interests beyond coding! 🌌
+          <br><br>
+          🔭 <strong>Astronomy:</strong> He loves staring at the stars and thinking about the cosmos! Did you know that there are more stars in the universe than grains of sand on all Earth's beaches? 🤯
+          <br><br>
+          🧠 <strong>Psychology:</strong> He's curious about how our minds work. Fun fact: Your brain uses about 20% of your body's energy but only makes up 2% of your weight! 
+          <br><br>
+          🎵 <strong>Music:</strong> He enjoys various genres - probably coding to some cool beats right now! 
+          <br><br>
+          🤖 <strong>AI Tools:</strong> He's always exploring new AI technologies and thinking about the future of tech!
+          <br><br>
+          Want to hear a random fact about space or the human mind? 😄`
+          : `Beyond software development, Ntando maintains interests in:
+          <br><br>
+          <strong>Astronomy:</strong> The study of celestial objects and cosmic phenomena
+          <br>
+          <strong>Psychology:</strong> Understanding human behavior and mental processes
+          <br>
+          <strong>Music:</strong> Appreciation of various musical genres and styles
+          <br>
+          <strong>AI Tools:</strong> Exploration of artificial intelligence applications and emerging technologies
+          <br><br>
+          These interests contribute to a well-rounded perspective on technology and its human context.`;
+        
+        // Add quick replies for fun facts
+        if (currentMode === 'fun') {
+          setTimeout(() => {
+            addQuickReplies(["Space fact please!", "Psychology fact", "Tell me about AI"]);
+          }, 500);
+        }
+        
+        return hobbiesResponse;
+      }
+      
+      // Check if asking for a space fact
+      if (lowerMessage.includes('space') || lowerMessage.includes('astronomy') || 
+          lowerMessage.includes('planet') || lowerMessage.includes('star') ||
+          lowerMessage.includes('cosmos') || lowerMessage.includes('universe')) {
+        
+        const spaceFacts = [
+          "🌌 A day on Mercury lasts 59 Earth days, but a year is only 88 days! Talk about time management issues!",
+          "🪐 Saturn's rings are made of ice chunks, some as small as dust and others as large as mountains!",
+          "🌞 The Sun makes up 99.86% of the mass in our entire solar system! Now that's dominating the room!",
+          "🚀 If you could drive straight up to space, you'd get there in about an hour! Better pack a snack!",
+          "🌎 Earth is the only planet not named after a god! We're the rebels of the solar system!",
+          "⭐ There are more stars in the universe than grains of sand on all Earth's beaches! Mind = blown!",
+          "🌑 The Moon is slowly moving away from Earth at about 3.8 cm per year! Don't worry, it'll take billions of years before it leaves us!"
+        ];
+        
+        return currentMode === 'fun' 
+          ? spaceFacts[Math.floor(Math.random() * spaceFacts.length)]
+          : "Astronomical fact: The universe is expanding at an accelerating rate, a discovery that earned the 2011 Nobel Prize in Physics.";
+      }
+      
+      // Check if asking for a psychology fact
+      if (lowerMessage.includes('psychology') || lowerMessage.includes('mind') || 
+          lowerMessage.includes('brain') || lowerMessage.includes('behavior')) {
+        
+        const psychFacts = [
+          "🧠 Your brain can hold about 2.5 petabytes of information - that's equivalent to 3 million hours of TV shows!",
+          "😊 It takes 17 muscles to smile but 43 to frown! Save energy - smile more!",
+          "💭 The average person has about 70,000 thoughts per day! No wonder we get tired!",
+          "🤝 Humans are hardwired for connection - social pain activates the same brain regions as physical pain!",
+          "🎵 Music triggers activity in the same brain region that releases dopamine (the pleasure chemical)!",
+          "👶 Babies start dreaming even before they're born! What do they dream about? Probably milk!",
+          "⚡ Your brain generates about 12-25 watts of electricity - enough to power a low-wattage LED light!"
+        ];
+        
+        return currentMode === 'fun' 
+          ? psychFacts[Math.floor(Math.random() * psychFacts.length)]
+          : "Psychological insight: The human brain contains approximately 86 billion neurons, forming trillions of connections that shape consciousness and behavior.";
+      }
+      
+      // Check if asking about education
+      if (lowerMessage.includes('education') || lowerMessage.includes('degree') || 
+          lowerMessage.includes('study') || lowerMessage.includes('college') ||
+          lowerMessage.includes('school') || lowerMessage.includes('certification')) {
+        
+        const educationResponse = currentMode === 'fun' 
+          ? `Ntando is constantly learning! 🎓 Here's his educational journey:
+          <br><br>
+          🏫 <strong>IIE Rosebank College</strong> - Diploma in Software Development (Ongoing)
+          <br>
+          🏫 <strong>Hoërskool Westonaria</strong> - Matric Qualification
+          <br><br>
+          Plus he's earned certifications in:
+          <br>
+          ✅ Introduction to DevOps – Alison
+          <br>
+          ✅ Cloud Computing Fundamentals – IBM
+          <br>
+          ✅ Introduction to Cybersecurity – Cisco
+          <br>
+          ✅ Computer Hardware Basics – Cisco
+          <br>
+          ✅ Fullstack Software Development – FNB Academy
+          <br>
+          ✅ Cyber Security Certificate – ISC2
+          <br><br>
+          He believes in lifelong learning! 📚`
+          : `Ntando's educational background includes:
+          <br><br>
+          <strong>IIE Rosebank College</strong>
+          <br>
+          - Diploma in Software Development (Ongoing)
+          <br><br>
+          <strong>Hoërskool Westonaria</strong>
+          <br>
+          - Matric Qualification
+          <br><br>
+          <strong>Certifications:</strong>
+          <br>
+          - Introduction to DevOps (Alison)
+          <br>
+          - Cloud Computing Fundamentals (IBM)
+          <br>
+          - Introduction to Cybersecurity (Cisco Networking Academy)
+          <br>
+          - Computer Hardware Basics (Cisco Networking Academy)
+          <br>
+          - Fullstack Software Development (FNB Academy)
+          <br>
+          - Cyber Security Certificate (ISC2)
+          <br>
+          - Introduction to Personal Computing (IIE Rosebank College)`;
+        
+        return educationResponse;
+      }
+      
+      // Check if asking about philosophy or deep thoughts
+      if (lowerMessage.includes('philosophy') || lowerMessage.includes('deep') || 
+          lowerMessage.includes('think') || lowerMessage.includes('meaning') ||
+          lowerMessage.includes('life') || lowerMessage.includes('wisdom')) {
+        
+        const philosophyResponses = currentMode === 'fun' 
+          ? [
+            "🤔 Here's a deep thought: If you're reading this, you're alive and conscious in a universe that somehow developed consciousness to understand itself. Whoa!",
+            "💭 Wisdom from the chatbot: The only constant in technology is change. The only constant in life is growth. Embrace both!",
+            "🌌 As Ntando would say: 'Code with purpose, build with passion.' Deep, right?",
+            "🧠 Fun philosophy: If a chatbot gives advice in a digital forest, does it make a sound?",
+            "🚀 Here's some wisdom: The best time to plant a tree was 20 years ago. The second best time is now. The best time to write code? Probably after coffee!"
+          ]
+          : [
+            "Philosophical perspective: Technology represents the application of human knowledge to solve problems and extend capabilities, reflecting our fundamental drive to understand and shape our environment.",
+            "Consideration: The development of artificial intelligence raises profound questions about consciousness, agency, and what it means to be human.",
+            "Reflection: As Socrates suggested, true wisdom consists in knowing that you know nothing. This remains relevant in our age of rapidly expanding technological knowledge.",
+            "Observation: The pace of technological change continues to accelerate, requiring continuous adaptation and learning - a challenge Ntando embraces through his multidisciplinary studies."
+          ];
+        
+        return philosophyResponses[Math.floor(Math.random() * philosophyResponses.length)];
+      }
+      
+      // Default responses with context awareness
+      const lastTopic = conversationContext.slice(-2).find(m => m.role === 'assistant')?.content || '';
+      
+      if (lastTopic.includes('contact') || lastTopic.includes('email') || lastTopic.includes('LinkedIn')) {
+        if (lowerMessage.includes('yes') || lowerMessage.includes('yeah') || lowerMessage.includes('sure') ||
+            lowerMessage.includes('please') || lowerMessage.includes('open') || lowerMessage.includes('send')) {
+          
+          if (lowerMessage.includes('email') || lowerMessage.includes('mail')) {
+            window.open('mailto:ntando.codes@gmail.com', '_blank');
+            return currentMode === 'fun' 
+              ? "📧 Opening your email client! Hope you have something awesome to say! 😊"
+              : "I have initiated your email client. You can now contact Ntando directly.";
+          }
+          
+          if (lowerMessage.includes('linkedin')) {
+            window.open('https://www.linkedin.com/in/ntando-nxumalo', '_blank');
+            return currentMode === 'fun' 
+              ? "💼 Opening LinkedIn! Don't forget to say hello from me! 🤖"
+              : "I am redirecting you to Ntando's LinkedIn profile.";
+          }
+        }
+      }
+      
+      // Contextual follow-up
+      if (lastTopic.includes('project') && (lowerMessage.includes('more') || lowerMessage.includes('detail'))) {
+        return currentMode === 'fun' 
+          ? "Which project would you like to know more about? I can tell you about the Towing website, ForexBot, Tech Repairs, Java Report System, or the Kubernetes lab! 🚀"
+          : "Please specify which project you would like more information about: Tshabalala Towing Services, ForexBot, Tech Repairs, Java Report System, or the Kubernetes Backup Lab.";
+      }
+      
+      // Unknown query response
+      const unknownResponses = currentMode === 'fun' 
+        ? [
+          "Hmm, I'm not sure about that one! 🤔 Try asking about Ntando's skills, projects, experience, or hobbies!",
+          "Ooops! My 500 IQ brain doesn't have an answer for that! 😅 Maybe ask about Ntando's tech skills or projects?",
+          "That's an interesting question! Unfortunately, I'm programmed to talk about Ntando's awesome tech career. 🚀",
+          "I'm still learning about that! Meanwhile, did you know Ntando is skilled in Java, Python, DevOps, and Cybersecurity? 🔥"
+        ]
+        : [
+          "I don't have sufficient information to address that query. Please ask about Ntando's professional background, skills, or projects.",
+          "That question falls outside my knowledge parameters. I specialize in information about Ntando's technical qualifications and experience.",
+          "I need to redirect to my core expertise. Would you like information about Ntando's software development skills or project portfolio?",
+          "My programming focuses on Ntando's professional background. Perhaps you would like to know about his technical capabilities or work experience?"
+        ];
+      
+      return unknownResponses[Math.floor(Math.random() * unknownResponses.length)];
+    }
+  });
+</script>
 </body>
 </html>
